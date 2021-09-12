@@ -52,6 +52,9 @@ function PostView({ post }) {
         </Typography>
       </Box>
       {image && (
+        
+        //IMAGEM SEGUNDA TELA 
+
         <Box mb={2}>
           <img className={classes.imagePreview} src={image} alt="background" />
         </Box>

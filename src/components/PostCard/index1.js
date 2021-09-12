@@ -10,15 +10,13 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 //import FavoriteIcon from '@material-ui/icons/Favorite';
 import MessageIcon from '@material-ui/icons/Message';
-// import FormGroup from '@material-ui/core/FormGroup';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import Checkbox from '@material-ui/core/Checkbox';
-// import Favorite from '@material-ui/icons/Favorite';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
-import Badge from '@material-ui/core/Badge';
-// import FavoriteIcon from '@material-ui/icons/Favorite';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,27 +53,11 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 'auto',
   },
 }));
-const useStyles2 = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    '& > *': {
-      marginBottom: theme.spacing(2),
-    },
-    '& .MuiBadge-root': {
-      marginRight: theme.spacing(4),
-    },
-  },
-}));
-function PostCard({ post }) {
-  const navigate = useNavigate();
-  const classes = useStyles2();
-  const [count, setCount] = React.useState(1);
-  const [invisible, setInvisible] = React.useState(false);
 
-  const handleBadgeVisibility = () => {
-    setInvisible(!invisible);
-  };
+function PostCard({ post }) {
+  const classes = useStyles();
+  const navigate = useNavigate();
+
   const handlePostClick = () => {
     navigate(`/post/${post.slug}`);
   };
@@ -113,17 +95,19 @@ function PostCard({ post }) {
       <CardActions disableSpacing>
         <IconButton aria-label="like">
           {/* <FavoriteIcon /> */}
-          <div className={classes.root}>
-      <div>
-        <Badge color="secondary" badgeContent={count}>
-          <FavoriteBorder varia-label="increase" onClick={() => {
-              setCount(count + 1); 
-            }}
+          <FormGroup row>
+            <FormControlLabel
+              control={<Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} name="checkedH" />}
+              //label="Custom icon"
             />
-        </Badge>
-      </div>
-   
-    </div>
+          </FormGroup>
+          <Typography
+            style={{ cursor: 'pointer' }}
+            color="textSecondary"
+            variant="body2"
+          >
+            {post.likes}
+          </Typography>
         </IconButton>        
         <IconButton aria-label="comment" onClick={handlePostClick}>
           <MessageIcon />
@@ -136,7 +120,15 @@ function PostCard({ post }) {
           </Typography>
         </IconButton>
       </CardActions>
-    
+      <div className={classes.root}>
+      <div>
+        <Badge color="secondary" badgeContent={count}>
+          <MailIcon aria-label="increase" onClick={() => {
+              setCount(count + 1);
+            }}
+            />
+        </Badge>
+      </div>
     </Card>
   );
 }

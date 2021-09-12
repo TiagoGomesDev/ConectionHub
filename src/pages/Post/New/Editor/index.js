@@ -31,6 +31,16 @@ const arrayTags = [
   { title: 'node.js' },
   { title: 'dotnetcore' },
   { title: 'webdev' },
+  { title: 'front-end' },
+  { title: 'back-end' },
+  { title: 'full-stack' },
+  { title: 'java' },
+  { title: 'python' },
+  { title: 'dba' },
+  { title: 'ruby' },
+  { title: 'git' },
+  { title: 'github' },
+  { title: 'android' },
 ];
 
 function PostEditor() {
@@ -82,7 +92,7 @@ function PostEditor() {
           value={tags}
           onChange={setTags}
           renderInput={(params) => (
-            <TextField {...params} variant="standard" placeholder="tags" />
+            <TextField {...params} variant="standard" placeholder="# Tags #" />
           )}
         />
       </Box>

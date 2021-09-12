@@ -46,9 +46,9 @@ function Copyright() {
       {'Copyright © '}
       <a
         color="inherit"
-        href="https://www.youtube.com/channel/UCVE9-HO_GzLtDK4IGKVSYXA"
+        href="https://github.com/TiagoGomesDev"
       >
-        Lucas Nhimi
+        Tiago Gomes
       </a>{' '}
       {new Date().getFullYear()}
     </Typography>
@@ -97,8 +97,8 @@ function SignIn() {
           <Typography variant="h5">Acesso</Typography>
           <Formik
             initialValues={{
-              email: '',
-              password: '',
+              email: 'tiago@gmail.com',
+              password: '123',
             }}
             validationSchema={Yup.object().shape({
               email: Yup.string()

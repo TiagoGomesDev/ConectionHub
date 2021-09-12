@@ -46,9 +46,9 @@ function Copyright() {
       {'Copyright © '}
       <a
         color="inherit"
-        href="https://www.youtube.com/channel/UCVE9-HO_GzLtDK4IGKVSYXA"
+        href="https://github.com/TiagoGomesDev"
       >
-        Lucas Nhimi
+        Tiago Gomes
       </a>{' '}
       {new Date().getFullYear()}
     </Typography>

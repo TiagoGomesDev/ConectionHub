@@ -4,7 +4,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Box from '@material-ui/core/Box';
 import { Link } from 'react-router-dom';
-
 import WritePost from './WritePost';
 import Notifications from './Notifications';
 import Account from './Account';
@@ -15,7 +14,8 @@ const useStyles = makeStyles({
     boxShadow: 'none',
   },
   img: {
-    maxHeight: 55,
+    //maxHeight: 55,
+    maxHeight: 45,
   },
   grow: {
     flexGrow: 1,
@@ -36,7 +36,7 @@ function Header() {
         <Link to="/">
           <img
             src={
-              theme.darkMode ? '/images/logo-branca.png' : '/images/logo.png'
+              theme.darkMode ? '/images/logo-branca.png' : '/images/Connec.png'
             }
             alt="logo"
             className={classes.img}
